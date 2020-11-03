@@ -1,12 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Simulator {
 
-    final static ArrayList<String> aircraftType = new ArrayList<String>(Arrays.asList("Baloon", "JetPlane", "Helicopter"));
     final static WeatherTower weatherTower = new WeatherTower();
 
     public enum WeatherChangeBaloon {
@@ -48,43 +45,37 @@ public class Simulator {
 
     }
 
-    //todo : delete error message, use exception to control flow
-    private static void parsingError(String message) {
-        System.out.println(message);
-        System.out.println("Exiting");
-        System.exit(2);
+    public enum ErrorCode {
+        MISSINGFILE,
+        PARSEERROR,
+        EXCEPTIONHANDLING
     }
 
-    public static void main (String[] argv) throws FileNotFoundException {
+
+    public static void main (String[] argv) {
 
         int simulations = 0;
         if (argv.length != 1) {
-            parsingError("You must provide a scenario file");
+            System.exit(ErrorCode.MISSINGFILE.ordinal());
         }
         File scenario = new File(argv[0]);
         boolean first = true;
         try (Scanner scanner = new Scanner(scenario)) {
-            int i = 1;
             while (scanner.hasNextLine()) {
                 if (first) {
                     simulations = checkFirstLine(scanner.nextLine());
                     if (simulations < 0) {
-                        parsingError(String.format("The first line of %s is not correct", scenario));
+                        System.exit(ErrorCode.PARSEERROR.ordinal());
                     }
                     first = false;
                 } else {
-                    String line = scanner.nextLine();
-                    String ret = callFactory(line.split(" "));
-                    if (ret.length() > 0) {
-                        parsingError(String.format("Error on line %d with : %s \"%s\"", i, ret, line));
-                    }
+                    callFactory(scanner.nextLine().split(" "));
                 }
-                i++;
             }
         } catch(FileNotFoundException e){
-                System.out.println("No file found: " + argv[0]);
+            System.exit(ErrorCode.MISSINGFILE.ordinal());
         }
-        for (int simulation = 0; simulation <= simulations ; simulation++) {
+        for (int simulation = 0; simulation < simulations ; simulation++) {
             weatherTower.conditionsChanged();
         }
     }
@@ -94,20 +85,14 @@ public class Simulator {
         try {
             ret = Integer.parseInt(line);
         } catch (Exception e) {
-            System.out.println("The first line doesn't contain a number");
-            System.exit(2);
+            System.exit(ErrorCode.PARSEERROR.ordinal());
         }
         return ret;
     }
 
-    static String callFactory(String[] line) {
-        String ret = new String();
+    static void callFactory(String[] line) {
         if (line.length != 5) {
-            ret += "number of argument";
-            return ret;
-        }
-        if (!aircraftType.contains(line[0])) {
-            ret = String.format("%s is not a valid Aircraft type", line[0]);
+            System.exit(ErrorCode.PARSEERROR.ordinal());
         }
         int[] coordinates = new int[3];
         try {
@@ -115,15 +100,14 @@ public class Simulator {
             coordinates[1] = Integer.parseInt(line[3]);
             coordinates[2] = Integer.parseInt(line[4]);
         } catch (Exception e) {
-            parsingError("Scenario file is not formated correctly");
+            System.exit(ErrorCode.PARSEERROR.ordinal());
         }
         Flyable newAircraft = null;
         try{
             newAircraft= AircraftFactory.newAircraft(line[0], line[1], coordinates[0], coordinates[1], coordinates[2]);
         } catch (IncorrectAircraftTypeValue e) {
-            System.exit(2);
+            System.exit(ErrorCode.PARSEERROR.ordinal());
         }
         newAircraft.registerTower(weatherTower);
-        return ret;
     }
 }
