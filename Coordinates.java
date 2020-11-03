@@ -9,7 +9,7 @@ class Coordinates {
     private int latitude;
     private int height;
 
-    Coordinates(int longitude, int latitude,int height) {
+    Coordinates(int longitude, int latitude,int height) throws IncorrectCoordinateValue {
         if (longitude <= 0 || latitude <= 0 || height <= 0) {
             throw new IncorrectCoordinateValue("The coordinate value are not good");
         }

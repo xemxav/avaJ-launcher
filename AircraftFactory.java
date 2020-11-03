@@ -6,7 +6,7 @@ class IncorrectAircraftTypeValue extends IllegalArgumentException {
 
 class AircraftFactory {
 
-    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
+    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) throws IncorrectAircraftTypeValue {
         Flyable product = null;
         try {
             switch (type) {
@@ -23,7 +23,7 @@ class AircraftFactory {
                     throw new IncorrectAircraftTypeValue(type +": is not a proper Aicraft type");
             }
         } catch (IncorrectCoordinateValue e) {
-            System.exit(-2);
+            System.exit(Simulator.ErrorCode.EXCEPTIONHANDLING.ordinal());
         }
         return product;
     }
