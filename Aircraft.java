@@ -37,15 +37,19 @@ class Helicopter extends Aircraft implements Flyable {
             case "SUN":
                 c = Simulator.WeatherChangeHelicopter.SUN;
                 System.out.println(this.toString() + ": My rotor is shiny with this sun !");
+                break;
             case "RAIN":
-                c = Simulator.WeatherChangeHelicopter.SUN;
+                c = Simulator.WeatherChangeHelicopter.RAIN;
                 System.out.println(this.toString() + ": My rotor is cutting the rain in two.");
+                break;
             case "FOG":
-                c = Simulator.WeatherChangeHelicopter.SUN;
+                c = Simulator.WeatherChangeHelicopter.FOG;
                 System.out.println(this.toString() + ": Am i going up or down ?");
+                break;
             case "SNOW":
-                c = Simulator.WeatherChangeHelicopter.SUN;
+                c = Simulator.WeatherChangeHelicopter.SNOW;
                 System.out.println(this.toString() + ": I'm a snow fan !");
+                break;
         }
         try {
             this.coordinates = new Coordinates(coordinates.getLongitude() + c.changes[0],
@@ -82,15 +86,19 @@ class JetPlane extends Aircraft implements Flyable {
             case "SUN":
                 c = Simulator.WeatherChangeJetPlane.SUN;
                 System.out.println(this.toString() + ": To infinity and beyond !");
+                break;
             case "RAIN":
-                c = Simulator.WeatherChangeJetPlane.SUN;
+                c = Simulator.WeatherChangeJetPlane.RAIN;
                 System.out.println(this.toString() + ": Highway to the danger zone!");
+                break;
             case "FOG":
-                c = Simulator.WeatherChangeJetPlane.SUN;
+                c = Simulator.WeatherChangeJetPlane.FOG;
                 System.out.println(this.toString() + ": I have some goo on my windshield !");
+                break;
             case "SNOW":
-                c = Simulator.WeatherChangeJetPlane.SUN;
+                c = Simulator.WeatherChangeJetPlane.SNOW;
                 System.out.println(this.toString() + ": I'm ski patrol.");
+                break;
         }
         try {
             this.coordinates = new Coordinates(coordinates.getLongitude() + c.changes[0],
@@ -125,15 +133,19 @@ class Baloon extends Aircraft implements Flyable {
             case "SUN":
                 c = Simulator.WeatherChangeBaloon.SUN;
                 System.out.println(this.toString() + ": The sun increases the vapors");
+                break;
             case "RAIN":
-                c = Simulator.WeatherChangeBaloon.SUN;
+                c = Simulator.WeatherChangeBaloon.RAIN;
                 System.out.println(this.toString() + ": From where those 'plops' are coming from ?");
+                break;
             case "FOG":
-                c = Simulator.WeatherChangeBaloon.SUN;
+                c = Simulator.WeatherChangeBaloon.FOG;
                 System.out.println(this.toString() + ": Is is fog or vapor ?");
+                break;
             case "SNOW":
-                c = Simulator.WeatherChangeBaloon.SUN;
+                c = Simulator.WeatherChangeBaloon.SNOW;
                 System.out.println(this.toString() + ": I'm a snowball !");
+                break;
         }
         try {
             this.coordinates = new Coordinates(coordinates.getLongitude() + c.changes[0],
