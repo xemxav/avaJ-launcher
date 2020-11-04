@@ -1,4 +1,4 @@
-package simulator.customexceptions;
+package src.customexceptions;
 
 public class IncorrectCoordinateValue extends IllegalArgumentException {
     public IncorrectCoordinateValue(String errorMessage) {

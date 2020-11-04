@@ -1,9 +1,10 @@
-package simulator.aircraft;
+package src.aircraft;
 
-import simulator.customexceptions.IncorrectAircraftTypeValue;
-import simulator.customexceptions.IncorrectCoordinateValue;
-import simulator.flyable.Flyable;
-import simulator.Simulator;
+import src.customexceptions.IncorrectAircraftTypeValue;
+import src.customexceptions.IncorrectCoordinateValue;
+import src.Flyable;
+import src.Simulator;
+
 
 public class AircraftFactory {
 
@@ -11,13 +12,13 @@ public class AircraftFactory {
         Flyable product = null;
         try {
             switch (type) {
-                case "simulator.aircraft.Baloon":
+                case "Baloon":
                     product = new Baloon(name, new Coordinates(longitude, latitude, height));
                     break;
-                case "simulator.aircraft.Helicopter":
+                case "Helicopter":
                     product = new Helicopter(name, new Coordinates(longitude, latitude, height));
                     break;
-                case "simulator.aircraft.JetPlane":
+                case "JetPlane":
                     product = new JetPlane(name, new Coordinates(longitude, latitude, height));
                     break;
                 default:

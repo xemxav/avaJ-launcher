@@ -1,4 +1,4 @@
-package simulator.customexceptions;
+package src.customexceptions;
 
 public class IncorrectAircraftTypeValue extends IllegalArgumentException {
     public IncorrectAircraftTypeValue(String errorMessage) {

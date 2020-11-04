@@ -1,9 +1,9 @@
-package simulator.aircraft;
+package src.aircraft;
 
-import simulator.customexceptions.IncorrectCoordinateValue;
-import simulator.flyable.Flyable;
-import simulator.Simulator;
-import simulator.WeatherTower;
+import src.customexceptions.IncorrectCoordinateValue;
+import src.Flyable;
+import src.Simulator;
+import src.WeatherTower;
 
 class Helicopter extends Aircraft implements Flyable {
 
@@ -16,7 +16,7 @@ class Helicopter extends Aircraft implements Flyable {
 
     public void updateConditions() {
         Simulator.WeatherChangeHelicopter c = null;
-        switch (weatherTower.getWeather(coordinates)) {
+        switch (this.weatherTower.getWeather(coordinates)) {
             case "SUN":
                 c = Simulator.WeatherChangeHelicopter.SUN;
                 System.out.println(this.toString() + ": My rotor is shiny with this sun !");
@@ -50,7 +50,7 @@ class Helicopter extends Aircraft implements Flyable {
 
     public String toString() {
         String str = super.toString();
-        return "simulator.aircraft.Helicopter" + str;
+        return "Helicopter" + str;
     }
 
 }

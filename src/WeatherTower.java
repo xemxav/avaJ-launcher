@@ -1,7 +1,7 @@
-package simulator;
+package src;
 
-import simulator.aircraft.Coordinates;
-import simulator.weatherprovider.WeatherProvider;
+import src.tower.Tower;
+import src.aircraft.Coordinates;
 
 public class WeatherTower extends Tower {
 
@@ -11,6 +11,6 @@ public class WeatherTower extends Tower {
     }
 
     void changeWeather() {
-        this.conditionsChanged();
+        conditionsChanged();
     }
 }

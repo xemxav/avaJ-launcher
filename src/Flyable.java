@@ -1,6 +1,4 @@
-package simulator.flyable;
-
-import simulator.WeatherTower;
+package src;
 
 public interface Flyable {
     void updateConditions() ;

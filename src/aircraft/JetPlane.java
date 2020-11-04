@@ -1,9 +1,9 @@
-package simulator.aircraft;
+package src.aircraft;
 
-import simulator.Simulator;
-import simulator.WeatherTower;
-import simulator.customexceptions.IncorrectCoordinateValue;
-import simulator.flyable.Flyable;
+import src.Simulator;
+import src.WeatherTower;
+import src.customexceptions.IncorrectCoordinateValue;
+import src.Flyable;
 
 class JetPlane extends Aircraft implements Flyable {
 
@@ -15,7 +15,7 @@ class JetPlane extends Aircraft implements Flyable {
 
     public void updateConditions() {
         Simulator.WeatherChangeJetPlane c = null;
-        switch (weatherTower.getWeather(coordinates)) {
+        switch (this.weatherTower.getWeather(coordinates)) {
             case "SUN":
                 c = Simulator.WeatherChangeJetPlane.SUN;
                 System.out.println(this.toString() + ": To infinity and beyond !");
@@ -48,6 +48,6 @@ class JetPlane extends Aircraft implements Flyable {
 
     public String toString() {
         String str = super.toString();
-        return "simulator.aircraft.JetPlane" + str;
+        return "JetPlane" + str;
     }
 }

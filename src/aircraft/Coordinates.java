@@ -1,11 +1,11 @@
-package simulator.aircraft;
+package src.aircraft;
 
-import simulator.customexceptions.IncorrectCoordinateValue;
+import src.customexceptions.IncorrectCoordinateValue;
 
 public class Coordinates {
-    private int longitude;
-    private int latitude;
-    private int height;
+    private final int longitude;
+    private final int latitude;
+    private final int height;
 
     Coordinates(int longitude, int latitude,int height) throws IncorrectCoordinateValue {
         if (longitude <= 0 || latitude <= 0 || height <= 0) {

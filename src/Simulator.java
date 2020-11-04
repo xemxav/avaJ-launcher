@@ -1,8 +1,7 @@
-package simulator;
+package src;
 
-import simulator.aircraft.AircraftFactory;
-import simulator.customexceptions.IncorrectAircraftTypeValue;
-import simulator.flyable.Flyable;
+import src.aircraft.AircraftFactory;
+import src.customexceptions.IncorrectAircraftTypeValue;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -75,7 +74,10 @@ public class Simulator {
                     }
                     first = false;
                 } else {
-                    callFactory(scanner.nextLine().split(" "));
+                    String line = scanner.nextLine();
+                    if (line.length() > 0) {
+                        callFactory(line.split(" "));
+                    }
                 }
             }
         } catch(FileNotFoundException e){

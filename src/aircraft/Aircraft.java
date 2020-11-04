@@ -1,4 +1,4 @@
-package simulator.aircraft;
+package src.aircraft;
 
 abstract class Aircraft {
     protected long id;

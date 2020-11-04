@@ -1,10 +1,10 @@
-package simulator.weatherprovider;
+package src;
 
-import simulator.aircraft.Coordinates;
+import src.aircraft.Coordinates;
 
 public class WeatherProvider {
-    private static WeatherProvider weatherProvider;
 
+    private static WeatherProvider weatherProvider;
 
     private WeatherProvider() { }
 

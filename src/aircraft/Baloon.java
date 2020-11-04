@@ -1,9 +1,9 @@
-package simulator.aircraft;
+package src.aircraft;
 
-import simulator.Simulator;
-import simulator.customexceptions.IncorrectCoordinateValue;
-import simulator.flyable.Flyable;
-import simulator.WeatherTower;
+import src.Simulator;
+import src.customexceptions.IncorrectCoordinateValue;
+import src.Flyable;
+import src.WeatherTower;
 
 class Baloon extends Aircraft implements Flyable {
 
@@ -15,7 +15,7 @@ class Baloon extends Aircraft implements Flyable {
 
     public void updateConditions() {
         Simulator.WeatherChangeBaloon c = null;
-        switch (weatherTower.getWeather(coordinates)) {
+        switch (this.weatherTower.getWeather(coordinates)) {
             case "SUN":
                 c = Simulator.WeatherChangeBaloon.SUN;
                 System.out.println(this.toString() + ": The sun increases the vapors");
@@ -49,6 +49,6 @@ class Baloon extends Aircraft implements Flyable {
 
     public String toString() {
         String str = super.toString();
-        return "simulator.aircraft.Baloon" + str;
+        return "Baloon" + str;
     }
 }
