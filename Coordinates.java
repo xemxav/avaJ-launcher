@@ -1,9 +1,3 @@
-class IncorrectCoordinateValue extends IllegalArgumentException {
-    IncorrectCoordinateValue(String errorMessage) {
-        super(errorMessage);
-    }
-}
-
 class Coordinates {
     private int longitude;
     private int latitude;

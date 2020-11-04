@@ -22,8 +22,8 @@ abstract class Tower {
     }
 
     protected void conditionsChanged() {
-        for (Flyable flyable : observers) {
-            flyable.updateConditions();
+        for(int i = 0; i < observers.size(); i++) {
+            observers.get(i).updateConditions();
         }
     }
 }

@@ -1,6 +1,6 @@
 public class WeatherProvider {
     private static WeatherProvider weatherProvider;
-    private String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
+
 
     private WeatherProvider() { }
 
@@ -12,7 +12,9 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates coordinates) {
-        int index = (coordinates.getHeight() + coordinates.getLatitude() + coordinates.getLongitude() % 4);
+        String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
+
+        int index = (coordinates.getHeight() + coordinates.getLatitude() + coordinates.getLongitude()) % 4;
         return weather[index];
     }
 }
