@@ -1,10 +1,10 @@
 25
-Baloon B1 2 3 20
-Baloon B2 1 8 66
-JetPlane J1 23 44 32
-Helicopter H1 654 33 20
-Helicopter H2 22 33 44
-Helicopter H3 98 68 99
-Baloon B3 102 22 34
-JetPlane J2 11 99 768
-Helicopter H4 223 23 54
+simulator.aircraft.Baloon B1 2 3 20
+simulator.aircraft.Baloon B2 1 8 66
+simulator.aircraft.JetPlane J1 23 44 32
+simulator.aircraft.Helicopter H1 654 33 20
+simulator.aircraft.Helicopter H2 22 33 44
+simulator.aircraft.Helicopter H3 98 68 99
+simulator.aircraft.Baloon B3 102 22 34
+simulator.aircraft.JetPlane J2 11 99 768
+simulator.aircraft.Helicopter H4 223 23 54

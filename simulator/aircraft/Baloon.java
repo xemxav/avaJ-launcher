@@ -1,3 +1,10 @@
+package simulator.aircraft;
+
+import simulator.Simulator;
+import simulator.customexceptions.IncorrectCoordinateValue;
+import simulator.flyable.Flyable;
+import simulator.WeatherTower;
+
 class Baloon extends Aircraft implements Flyable {
 
     WeatherTower weatherTower;
@@ -42,6 +49,6 @@ class Baloon extends Aircraft implements Flyable {
 
     public String toString() {
         String str = super.toString();
-        return "Baloon" + str;
+        return "simulator.aircraft.Baloon" + str;
     }
 }

@@ -1,3 +1,10 @@
+package simulator.aircraft;
+
+import simulator.customexceptions.IncorrectCoordinateValue;
+import simulator.flyable.Flyable;
+import simulator.Simulator;
+import simulator.WeatherTower;
+
 class Helicopter extends Aircraft implements Flyable {
 
     WeatherTower weatherTower;
@@ -43,7 +50,7 @@ class Helicopter extends Aircraft implements Flyable {
 
     public String toString() {
         String str = super.toString();
-        return "Helicopter" + str;
+        return "simulator.aircraft.Helicopter" + str;
     }
 
 }

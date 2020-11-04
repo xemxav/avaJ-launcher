@@ -1,4 +1,8 @@
-class Coordinates {
+package simulator.aircraft;
+
+import simulator.customexceptions.IncorrectCoordinateValue;
+
+public class Coordinates {
     private int longitude;
     private int latitude;
     private int height;

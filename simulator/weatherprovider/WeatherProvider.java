@@ -1,3 +1,7 @@
+package simulator.weatherprovider;
+
+import simulator.aircraft.Coordinates;
+
 public class WeatherProvider {
     private static WeatherProvider weatherProvider;
 

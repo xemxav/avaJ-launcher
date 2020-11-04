@@ -1,10 +1,16 @@
+package simulator;
+
+import simulator.aircraft.AircraftFactory;
+import simulator.customexceptions.IncorrectAircraftTypeValue;
+import simulator.flyable.Flyable;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Simulator {
 
-    final static WeatherTower weatherTower = new WeatherTower();
+    public static WeatherTower weatherTower = new WeatherTower();
 
     public enum WeatherChangeBaloon {
         SUN(new int[]{2, 0, 4}),
@@ -12,7 +18,7 @@ public class Simulator {
         FOG(new int[]{0, 0, -3}),
         SNOW(new int[]{0, 0, -15});
 
-        final int[] changes;
+        public final int[] changes;
         WeatherChangeBaloon(int[] changes) {
             this.changes = changes;
         }
@@ -25,7 +31,7 @@ public class Simulator {
         FOG(new int[]{0, 1, 0}),
         SNOW(new int[]{0, 0, -7});
 
-        final int[] changes;
+        public final int[] changes;
         WeatherChangeJetPlane(int[] changes) {
             this.changes = changes;
         }
@@ -38,7 +44,7 @@ public class Simulator {
         FOG(new int[]{1, 0, 0}),
         SNOW(new int[]{0, 0, -12});
 
-        final int[] changes;
+        public final int[] changes;
         WeatherChangeHelicopter(int[] changes) {
             this.changes = changes;
         }
@@ -76,7 +82,7 @@ public class Simulator {
             System.exit(ErrorCode.MISSINGFILE.ordinal());
         }
         for (int simulation = 0; simulation < simulations ; simulation++) {
-            weatherTower.conditionsChanged();
+            weatherTower.changeWeather();
         }
     }
 

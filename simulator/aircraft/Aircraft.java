@@ -1,3 +1,5 @@
+package simulator.aircraft;
+
 abstract class Aircraft {
     protected long id;
     protected String name;
