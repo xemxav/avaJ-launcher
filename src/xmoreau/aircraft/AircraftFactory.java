@@ -1,9 +1,9 @@
-package src.aircraft;
+package src.xmoreau.aircraft;
 
-import src.customexceptions.IncorrectAircraftTypeValue;
-import src.customexceptions.IncorrectCoordinateValue;
-import src.Flyable;
-import src.Simulator;
+import src.xmoreau.customexceptions.IncorrectAircraftTypeValue;
+import src.xmoreau.customexceptions.IncorrectCoordinateValue;
+import src.xmoreau.flyable.Flyable;
+import src.xmoreau.simulator.Simulator;
 
 
 public class AircraftFactory {
@@ -25,6 +25,7 @@ public class AircraftFactory {
                     throw new IncorrectAircraftTypeValue(type +": is not a proper Aicraft type");
             }
         } catch (IncorrectCoordinateValue e) {
+            Simulator.logger.close();
             System.exit(Simulator.ErrorCode.EXCEPTIONHANDLING.ordinal());
         }
         return product;

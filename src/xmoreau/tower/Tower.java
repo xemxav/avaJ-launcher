@@ -1,6 +1,7 @@
-package src.tower;
+package src.xmoreau.tower;
 
-import src.Flyable;
+import src.xmoreau.flyable.Flyable;
+import src.xmoreau.simulator.Simulator;
 
 import java.util.ArrayList;
 
@@ -10,18 +11,18 @@ public abstract class Tower {
     public void register(Flyable flyable) {
         if (!observers.contains(flyable)) {
             observers.add(flyable);
-            System.out.printf("Tower says: %s registered to weather tower.%n", flyable);
+            Simulator.logger.printf("Tower says: %s registered to weather tower.%n", flyable);
         } else {
-            System.out.printf("%s: already registered.%n", flyable);
+            Simulator.logger.printf("%s: already registered.%n", flyable);
         }
     }
 
     public void unregister(Flyable flyable) {
         if (observers.contains(flyable)) {
             observers.remove(flyable);
-            System.out.printf("Tower says: %s unregistered from weather tower.%n", flyable);
+            Simulator.logger.printf("Tower says: %s unregistered from weather tower.%n", flyable);
         } else {
-            System.out.printf("%s: is not registered yet.%n", flyable);
+            Simulator.logger.printf("%s: is not registered yet.%n", flyable);
         }
     }
 

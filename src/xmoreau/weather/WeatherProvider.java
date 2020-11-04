@@ -1,6 +1,6 @@
-package src;
+package src.xmoreau.weather;
 
-import src.aircraft.Coordinates;
+import src.xmoreau.aircraft.Coordinates;
 
 public class WeatherProvider {
 

@@ -1,6 +1,6 @@
-package src.aircraft;
+package src.xmoreau.aircraft;
 
-import src.customexceptions.IncorrectCoordinateValue;
+import src.xmoreau.customexceptions.IncorrectCoordinateValue;
 
 public class Coordinates {
     private final int longitude;

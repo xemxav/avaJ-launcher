@@ -1,7 +1,7 @@
-package src;
+package src.xmoreau.weather;
 
-import src.tower.Tower;
-import src.aircraft.Coordinates;
+import src.xmoreau.tower.Tower;
+import src.xmoreau.aircraft.Coordinates;
 
 public class WeatherTower extends Tower {
 
@@ -10,7 +10,7 @@ public class WeatherTower extends Tower {
         return weatherProvider.getCurrentWeather(coordinates);
     }
 
-    void changeWeather() {
+    public void changeWeather() {
         conditionsChanged();
     }
 }

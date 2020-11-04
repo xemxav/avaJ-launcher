@@ -1,4 +1,4 @@
-package src.aircraft;
+package src.xmoreau.aircraft;
 
 abstract class Aircraft {
     protected long id;

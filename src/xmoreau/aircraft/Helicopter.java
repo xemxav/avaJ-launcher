@@ -1,9 +1,9 @@
-package src.aircraft;
+package src.xmoreau.aircraft;
 
-import src.customexceptions.IncorrectCoordinateValue;
-import src.Flyable;
-import src.Simulator;
-import src.WeatherTower;
+import src.xmoreau.customexceptions.IncorrectCoordinateValue;
+import src.xmoreau.flyable.Flyable;
+import src.xmoreau.weather.WeatherTower;
+import src.xmoreau.simulator.Simulator;
 
 class Helicopter extends Aircraft implements Flyable {
 
@@ -19,19 +19,19 @@ class Helicopter extends Aircraft implements Flyable {
         switch (this.weatherTower.getWeather(coordinates)) {
             case "SUN":
                 c = Simulator.WeatherChangeHelicopter.SUN;
-                System.out.println(this.toString() + ": My rotor is shiny with this sun !");
+                Simulator.logger.println(this.toString() + ": My rotor is shiny with this sun !");
                 break;
             case "RAIN":
                 c = Simulator.WeatherChangeHelicopter.RAIN;
-                System.out.println(this.toString() + ": My rotor is cutting the rain in two.");
+                Simulator.logger.println(this.toString() + ": My rotor is cutting the rain in two.");
                 break;
             case "FOG":
                 c = Simulator.WeatherChangeHelicopter.FOG;
-                System.out.println(this.toString() + ": Am i going up or down ?");
+                Simulator.logger.println(this.toString() + ": Am i going up or down ?");
                 break;
             case "SNOW":
                 c = Simulator.WeatherChangeHelicopter.SNOW;
-                System.out.println(this.toString() + ": I'm a snow fan !");
+                Simulator.logger.println(this.toString() + ": I'm a snow fan !");
                 break;
         }
         try {
